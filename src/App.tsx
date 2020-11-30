@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import CountComp from './components/CountComp';
+import BoardComp from './components/BoardComp';
+import { ChessType } from './types/enums';
+
+const chessesArr = [
+    ChessType.black,
+    ChessType.none,
+    ChessType.red,
+    ChessType.red,
+    ChessType.black,
+    ChessType.none,
+    ChessType.red,
+    ChessType.black,
+    ChessType.none,
+]
 
 export default class App extends Component {
     state = {
@@ -8,14 +21,12 @@ export default class App extends Component {
     };
     render() {
         return (
-            <CountComp
-                num={this.state.num}
-                onChange={(num) => {
-                    this.setState({
-                        num,
-                    });
-                }}
-            />
+            <>
+                <BoardComp chesses={chessesArr} isGameOver={false} onClick={(i) => {
+                    console.log(i);
+                    
+                }}/>
+            </>
         );
     }
 }
