@@ -8,23 +8,25 @@ interface IProps {
 }
 
 export const BoardComp: React.FC<IProps> = function(props: IProps) {
+    const isGameOver = props.isGameOver!;
     const list = props.chesses.map((type, i) => {
         return (
             <ChessComp key={i} type={type} onClick={() => {
-                if(props.onClick) {
+                if(props.onClick && !isGameOver) {
                     props.onClick(i);
                 }
             }}/>
         )
     })
 
-    return (
+    return ( 
         <div className="board">
             {list}
         </div>
     )
 }
 
+//属性默认值 默认为没有false 
 BoardComp.defaultProps = {
-
-}
+    isGameOver: false
+} 

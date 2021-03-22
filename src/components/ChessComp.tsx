@@ -1,3 +1,5 @@
+/**棋子组件 */
+
 import { ChessType } from '../types/enums';
 import './ChessComp.css';
 interface IProps {
